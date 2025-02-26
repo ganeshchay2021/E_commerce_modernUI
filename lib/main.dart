@@ -1,4 +1,5 @@
-import 'package:e_commerce_modernui/view/home/home_screen.dart';
+import 'package:e_commerce_modernui/utils/app_theme.dart';
+import 'package:e_commerce_modernui/view/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,12 +12,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const HomeScreen()
+      title: 'Fashion Store',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      themeAnimationCurve: Curves.linear,
+      themeAnimationDuration: const Duration(milliseconds: 500),
+      home: const SplashScreen(),
     );
   }
 }
