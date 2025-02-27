@@ -1,8 +1,46 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:async';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+import 'package:e_commerce_modernui/view/home/home_screen.dart';
+import 'package:e_commerce_modernui/view/onboarding/onboarding_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({
+    super.key,
+  });
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+
+ 
+  @override
+  void initState() {
+   
+    initialization();
+    super.initState();
+  }
+
+  initialization() async {
+    Timer(const Duration(seconds: 3), ()async {
+       final prefs =await  SharedPreferences.getInstance();
+    bool showOnBoard = prefs.getBool('showHome') ?? false;
+      Navigator.pushReplacement(
+        context,
+        CupertinoPageRoute(
+          builder: (context) => showOnBoard
+              ? const HomeScreen()
+              : const OnboardingScreen(),
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
