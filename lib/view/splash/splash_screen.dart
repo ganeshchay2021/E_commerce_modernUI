@@ -1,10 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 
+import 'package:e_commerce_modernui/view/login/login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'package:e_commerce_modernui/view/home/home_screen.dart';
 import 'package:e_commerce_modernui/view/onboarding/onboarding_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -35,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
         context,
         CupertinoPageRoute(
           builder: (context) => showOnBoard
-              ? const HomeScreen()
+              ? const LoginScreen()
               : const OnboardingScreen(),
         ),
       );

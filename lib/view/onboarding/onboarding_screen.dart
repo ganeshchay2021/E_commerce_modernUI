@@ -1,10 +1,8 @@
 import 'package:e_commerce_modernui/model/onBoarding_item_model.dart';
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
-import 'package:e_commerce_modernui/utils/cubit/theme_cubit.dart';
 import 'package:e_commerce_modernui/view/home/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -37,11 +35,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        context.read<ThemeCubit>().toggle();
-                      },
-                      child: const Text("TOgg")),
                   Image.asset(
                     onBoardingitems[index].image,
                     height: height * 0.4,
