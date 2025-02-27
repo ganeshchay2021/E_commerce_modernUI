@@ -195,7 +195,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 30,
                 ),
 
-                //login button
+                //Sign up button
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -207,7 +207,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         backgroundColor: Theme.of(context).primaryColor),
                     child: Text(
-                      "Login",
+                      "Sign Up",
                       style: AppTextstyles.withColor(
                           AppTextstyles.buttonMedium, Colors.white),
                     ),
