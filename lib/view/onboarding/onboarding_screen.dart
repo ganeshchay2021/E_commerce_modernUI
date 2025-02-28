@@ -1,6 +1,6 @@
 import 'package:e_commerce_modernui/model/onBoarding_item_model.dart';
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
-import 'package:e_commerce_modernui/view/home/home_screen.dart';
+import 'package:e_commerce_modernui/view/login/login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -126,7 +126,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       Navigator.pushReplacement(
                         context,
                         CupertinoPageRoute(
-                          builder: (context) => const HomeScreen(),
+                          builder: (context) => const LoginScreen(),
                         ),
                       );
                     }

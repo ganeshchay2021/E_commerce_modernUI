@@ -1,3 +1,4 @@
+import 'package:e_commerce_modernui/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {
@@ -19,9 +20,13 @@ class AppTheme {
         brightness: Brightness.light,
         surface: Colors.white),
     cardColor: Colors.white,
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      selectedIconTheme: const IconThemeData(size: 25,
+      color: Color(0xFFff5722)),
       backgroundColor: Colors.white,
-      selectedItemColor: Color(0xFFff5722),
+      elevation: 5,
+      selectedLabelStyle: AppTextstyles.buttonMedium,
+      selectedItemColor: const Color(0xFFff5722),
       unselectedItemColor: Colors.grey,
     ),
   );

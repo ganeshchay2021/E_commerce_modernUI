@@ -1,5 +1,6 @@
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
 import 'package:e_commerce_modernui/view/forgot%20password/forgot_password_screen.dart';
+import 'package:e_commerce_modernui/view/Main/main_screen.dart';
 import 'package:e_commerce_modernui/view/signup/signup_screen.dart';
 import 'package:e_commerce_modernui/widgets/custom_textfield.dart';
 import 'package:email_validator/email_validator.dart';
@@ -17,7 +18,14 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  void _handleLogin() {}
+  void _handleLogin() {
+    Navigator.pushReplacement(
+      context,
+      CupertinoPageRoute(
+        builder: (context) => const MainScreen(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
