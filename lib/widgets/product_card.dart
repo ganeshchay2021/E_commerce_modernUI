@@ -45,10 +45,13 @@ class ProductCard extends StatelessWidget {
                 aspectRatio: 16 / 9,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    product.imageUrl,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    tag: product.imageUrl,
+                    child: Image.asset(
+                      product.imageUrl,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -126,7 +129,7 @@ class ProductCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      product.price.toStringAsFixed(2),
+                      product.price.toString(),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: AppTextstyles.withWeight(
@@ -142,10 +145,11 @@ class ProductCard extends StatelessWidget {
                         width: screenWidth * 0.01,
                       ),
                       Text(
-                        product.oldPrice!.toStringAsFixed(2),
+                        product.oldPrice!.toString(),
                         style: TextStyle(
                           decoration: TextDecoration.lineThrough,
-                          fontSize: 15,
+                          overflow: TextOverflow.clip,
+                          fontSize: screenWidth*0.04,
                           color: isDark ? Colors.grey[300]! : Colors.grey[700]!,
                         ),
                       ),
@@ -160,7 +164,7 @@ class ProductCard extends StatelessWidget {
     );
   }
 
-  int calculteDiscount(double oldPrice,double price){
-    return (((oldPrice-price)/oldPrice)*100).round();
+  int calculteDiscount(double oldPrice, double price) {
+    return (((oldPrice - price) / oldPrice) * 100).round();
   }
 }

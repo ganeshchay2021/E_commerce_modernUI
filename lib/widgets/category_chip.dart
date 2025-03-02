@@ -1,3 +1,4 @@
+import 'package:e_commerce_modernui/model/product_model.dart';
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,6 @@ class CategoryChip extends StatefulWidget {
 class _CategoryChipState extends State<CategoryChip> {
   int selectedIndex = 0;
 
-  final List<String> category = ["All", "Men", "Women", "Girls"];
   @override
   Widget build(BuildContext context) {
     bool isDark = Theme.of(context).brightness == Brightness.dark;
@@ -49,7 +49,8 @@ class _CategoryChipState extends State<CategoryChip> {
                       selectedIndex = value ? index : selectedIndex;
                     });
                   },
-                  backgroundColor: isDark ? Colors.grey[600]! : Colors.grey[200],
+                  backgroundColor:
+                      isDark ? Colors.grey[600]! : Colors.grey[200],
                   selectedColor: Theme.of(context).primaryColor,
                   elevation: selectedIndex == index ? 2 : 0,
                   pressElevation: 0,

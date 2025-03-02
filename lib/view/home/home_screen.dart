@@ -1,12 +1,10 @@
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
 import 'package:e_commerce_modernui/utils/assets.dart';
-import 'package:e_commerce_modernui/utils/cubit/theme_cubit.dart';
 import 'package:e_commerce_modernui/widgets/category_chip.dart';
 import 'package:e_commerce_modernui/widgets/custom_search_bar.dart';
 import 'package:e_commerce_modernui/widgets/product_grid.dart';
 import 'package:e_commerce_modernui/widgets/sale_banner.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -65,11 +63,6 @@ class HomeScreen extends StatelessWidget {
                       Icons.shopping_bag_outlined,
                     ),
                   ),
-                  IconButton(
-                      onPressed: () {
-                        context.read<ThemeCubit>().toggle();
-                      },
-                      icon: const Icon(Icons.dark_mode))
                 ],
               ),
             ),
