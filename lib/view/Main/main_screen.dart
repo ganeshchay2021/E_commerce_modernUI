@@ -1,7 +1,7 @@
-import 'package:e_commerce_modernui/view/cart/cart_screen.dart';
 import 'package:e_commerce_modernui/view/favourite/favorite_screen.dart';
 import 'package:e_commerce_modernui/view/home/home_screen.dart';
 import 'package:e_commerce_modernui/view/profile/profile_screen.dart';
+import 'package:e_commerce_modernui/view/shopping/shopping_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -14,7 +14,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final List<Widget> pages = const [
     HomeScreen(),
-    CartScreen(),
+    ShoppingScreen(),
     FavoriteScreen(),
     ProfileScreen(),
   ];

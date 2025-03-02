@@ -1,11 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:e_commerce_modernui/widgets/product_size_chip.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:e_commerce_modernui/model/product_model.dart';
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
-import 'package:e_commerce_modernui/utils/cubit/theme_cubit.dart';
 import 'package:e_commerce_modernui/widgets/custom_iconbutton.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
@@ -40,12 +37,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             onPressed: () {},
             icon: const Icon(Icons.share),
           ),
-          IconButton(
-            onPressed: () {
-              context.read<ThemeCubit>().toggle();
-            },
-            icon: const Icon(Icons.dark_mode),
-          )
         ],
       ),
       body: SingleChildScrollView(
