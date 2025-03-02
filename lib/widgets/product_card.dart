@@ -45,13 +45,10 @@ class ProductCard extends StatelessWidget {
                 aspectRatio: 16 / 9,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Hero(
-                    tag: product.imageUrl,
-                    child: Image.asset(
-                      product.imageUrl,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
+                  child: Image.asset(
+                    product.imageUrl,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),

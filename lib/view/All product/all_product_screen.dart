@@ -27,13 +27,13 @@ class AllProductScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              FilteredBottomSheet.show(context);
-            },
+            onPressed: () {},
             icon: const Icon(Icons.search),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              FilteredBottomSheet.show(context);
+            },
             icon: const Icon(Icons.filter_list),
           ),
         ],

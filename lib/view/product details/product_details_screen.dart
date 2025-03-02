@@ -46,12 +46,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               children: [
                 AspectRatio(
                   aspectRatio: 16 / 9,
-                  child: Hero(
-                    tag: widget.product.imageUrl,
-                    child: Image.asset(
-                      widget.product.imageUrl,
-                      fit: BoxFit.cover,
-                    ),
+                  child: Image.asset(
+                    widget.product.imageUrl,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Positioned(
