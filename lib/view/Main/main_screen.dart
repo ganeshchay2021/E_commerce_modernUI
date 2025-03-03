@@ -1,4 +1,4 @@
-import 'package:e_commerce_modernui/view/favourite/favorite_screen.dart';
+import 'package:e_commerce_modernui/view/favourite/wishlist_screen.dart';
 import 'package:e_commerce_modernui/view/home/home_screen.dart';
 import 'package:e_commerce_modernui/view/profile/profile_screen.dart';
 import 'package:e_commerce_modernui/view/shopping/shopping_screen.dart';
@@ -15,7 +15,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> pages = const [
     HomeScreen(),
     ShoppingScreen(),
-    FavoriteScreen(),
+    WishListScreen(),
     ProfileScreen(),
   ];
   int _currentIndex = 0;
@@ -50,7 +50,7 @@ class _MainScreenState extends State<MainScreen> {
               icon: Icon(
                 Icons.favorite_outline,
               ),
-              label: "Favourite"),
+              label: "Wishlist"),
           BottomNavigationBarItem(
               icon: Icon(Icons.person_outline), label: "Profile"),
         ],

@@ -42,6 +42,7 @@ final List<ProductModel> products = [
     name: "Jorden Shoes",
     category: "Footwear",
     price: 4999,
+    isFavourite: true,
     oldPrice: 7600,
     imageUrl: Assets.shoe2,
     description: "Air Jordan is a line of basketball and sportswear shoes produced by Nike, Inc. Related apparel and accessories are marketed under Jordan Brand.\nThe first Air Jordan shoe was produced for basketball player Michael Jordan during his time with the Chicago Bulls on November 17, 1984, and released to the public on April 1, 1985.[2][3] The shoes were designed for Nike by Peter Moore, Tinker Hatfield, and Bruce Kilgore.\nThe Jordan Logo, known as the Jumpman, originated from a photograph by Jacobus Rentmeester, taken before Jordan played for Team USA in the 1984 Summer Olympics.\nAs Michael Jordan entered his rookie year in 1984, he was approached to sign a shoe deal with Adidas, Converse, and Nike. In their meeting with Jordan, Nike centered its presentation around a highlight video of Jordan's various slam dunks, scored to Jump (For My Love)by the Pointer Sisters. Nike showcased the first design of the shoe, but Jordan criticized its colorway. While other companies saw Jordan as a figure for promoting preexisting shoe lines, Nike took Jordan's criticism into account to make him a stand alone star and give him a signature shoe line",
