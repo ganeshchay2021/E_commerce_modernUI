@@ -2,6 +2,7 @@ import 'package:e_commerce_modernui/utils/app_text_styles.dart';
 import 'package:e_commerce_modernui/utils/assets.dart';
 import 'package:e_commerce_modernui/view/All%20product/all_product_screen.dart';
 import 'package:e_commerce_modernui/view/cart/cart_screen.dart';
+import 'package:e_commerce_modernui/view/notification/notification_screen.dart';
 import 'package:e_commerce_modernui/widgets/category_chip.dart';
 import 'package:e_commerce_modernui/widgets/custom_search_bar.dart';
 import 'package:e_commerce_modernui/widgets/product_grid.dart';
@@ -55,7 +56,14 @@ class HomeScreen extends StatelessWidget {
 
                   //notification icon
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                          builder: (context) => const NotificationScreen(),
+                        ),
+                      );
+                    },
                     icon: const Icon(
                       Icons.notifications_outlined,
                     ),
