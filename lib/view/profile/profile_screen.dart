@@ -1,8 +1,8 @@
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
 import 'package:e_commerce_modernui/utils/assets.dart';
-import 'package:e_commerce_modernui/utils/cubit/theme_cubit.dart';
+import 'package:e_commerce_modernui/view/settings/settings_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -22,14 +22,15 @@ class ProfileScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.settings_outlined),
-          ),
-          IconButton(
             onPressed: () {
-              context.read<ThemeCubit>().toggle();
+              Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => const SettingsScreen(),
+                ),
+              );
             },
-            icon: const Icon(Icons.dark_mode),
+            icon: const Icon(Icons.settings_outlined),
           ),
         ],
       ),
