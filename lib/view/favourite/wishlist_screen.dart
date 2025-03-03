@@ -1,8 +1,6 @@
 import 'package:e_commerce_modernui/model/product_model.dart';
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
-import 'package:e_commerce_modernui/utils/cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WishListScreen extends StatefulWidget {
   const WishListScreen({super.key});
@@ -31,12 +29,6 @@ class _WishListScreenState extends State<WishListScreen> {
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.search),
-          ),
-          IconButton(
-            onPressed: () {
-              context.read<ThemeCubit>().toggle();
-            },
-            icon: const Icon(Icons.dark_mode),
           ),
         ],
       ),
