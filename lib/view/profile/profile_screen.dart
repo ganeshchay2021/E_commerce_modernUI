@@ -1,5 +1,6 @@
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
 import 'package:e_commerce_modernui/utils/assets.dart';
+import 'package:e_commerce_modernui/view/account/accunt_edit_screen.dart';
 import 'package:e_commerce_modernui/view/myorders/myorders_screens.dart';
 import 'package:e_commerce_modernui/view/settings/settings_screen.dart';
 import 'package:e_commerce_modernui/view/shipping/shipping_address_screen.dart';
@@ -91,7 +92,14 @@ class ProfileScreen extends StatelessWidget {
             height: 16,
           ),
           OutlinedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => const AccuntEditScreen(),
+                ),
+              );
+            },
             style: OutlinedButton.styleFrom(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
