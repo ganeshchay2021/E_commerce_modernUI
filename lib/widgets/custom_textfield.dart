@@ -3,7 +3,9 @@ import 'package:e_commerce_modernui/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextfield extends StatefulWidget {
-  final String label;
+  final String? label;
+  final String? hintText;
+  final Color? iconColor;
   final IconData icon;
   final TextInputType keyBoardType;
   final bool isPassword;
@@ -13,7 +15,9 @@ class CustomTextfield extends StatefulWidget {
 
   const CustomTextfield({
     super.key,
-    required this.label,
+    this.label,
+    this.hintText,
+    this.iconColor,
     required this.icon,
     this.keyBoardType = TextInputType.text,
     this.isPassword = false,
@@ -28,6 +32,19 @@ class CustomTextfield extends StatefulWidget {
 
 class _CustomTextfieldState extends State<CustomTextfield> {
   bool showPassword = false;
+
+  bool isColor = false;
+
+  @override
+  void initState() {
+    if (widget.iconColor == null) {
+      isColor = false;
+    } else {
+      isColor = true;
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     bool isDark = Theme.of(context).brightness == Brightness.dark;
@@ -43,14 +60,17 @@ class _CustomTextfieldState extends State<CustomTextfield> {
       ),
       decoration: InputDecoration(
         labelText: widget.label,
+        hintText: widget.hintText,
         labelStyle: AppTextstyles.withColor(
           AppTextstyles.bodyMedium,
           isDark ? Colors.grey[300]! : Colors.grey[700]!,
         ),
-        prefixIcon: Icon(
-          widget.icon,
-          color: isDark ? Colors.grey[300]! : Colors.grey[700]!,
-        ),
+        prefixIcon: Icon(widget.icon,
+            color: isColor
+                ? widget.iconColor
+                : isDark
+                    ? Colors.grey[300]!
+                    : Colors.grey[700]!),
         suffixIcon: widget.isPassword
             ? IconButton(
                 onPressed: () {
@@ -78,18 +98,15 @@ class _CustomTextfieldState extends State<CustomTextfield> {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide:
-              BorderSide(color: Theme.of(context).primaryColor),
+          borderSide: BorderSide(color: Theme.of(context).primaryColor),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide:
-              BorderSide(color: Theme.of(context).colorScheme.error),
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.error),
         ),
-         focusedErrorBorder: OutlineInputBorder(
+        focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide:
-              BorderSide(color: Theme.of(context).colorScheme.error),
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.error),
         ),
       ),
     );

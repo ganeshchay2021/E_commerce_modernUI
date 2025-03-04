@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
           title: 'Fashion Store',
           debugShowCheckedModeBanner: false,
           theme: state is LightThemeState ? AppTheme.light : AppTheme.dark,
-          // themeAnimationCurve: Curves.linear,
-          // themeAnimationDuration: const Duration(milliseconds: 500),
+          themeAnimationCurve: Curves.linear,
+          themeAnimationDuration: const Duration(milliseconds: 500),
           home: const SplashScreen(),
         );
       },

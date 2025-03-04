@@ -1,11 +1,9 @@
 import 'package:e_commerce_modernui/model/orders.dart';
 import 'package:e_commerce_modernui/repository/order_repository.dart';
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
-import 'package:e_commerce_modernui/utils/cubit/theme_cubit.dart';
 import 'package:e_commerce_modernui/widgets/custom_iconbutton.dart';
 import 'package:e_commerce_modernui/widgets/order_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyOrdersScreens extends StatelessWidget {
   final OrderRepository _repository = OrderRepository();
@@ -31,13 +29,6 @@ class MyOrdersScreens extends StatelessWidget {
               isDark ? Colors.white : Colors.black,
             ),
           ),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  context.read<ThemeCubit>().toggle();
-                },
-                icon: const Icon(Icons.dark_mode))
-          ],
           bottom: TabBar(
               labelColor: Theme.of(context).primaryColor,
               unselectedLabelColor:
@@ -67,7 +58,6 @@ class MyOrdersScreens extends StatelessWidget {
   }
 
   Widget _buildOrderList(BuildContext context, OrderStatus status) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     final order = _repository.getOrdersByStatus(status);
     return ListView.builder(
       padding: const EdgeInsets.all(16),
@@ -76,7 +66,9 @@ class MyOrdersScreens extends StatelessWidget {
         final orderItem = order[index];
         return OrderCard(
           orders: orderItem,
-          onTap: () {},
+          onTap: () {
+            //move to order details
+          },
         );
       },
     );

@@ -2,6 +2,7 @@ import 'package:e_commerce_modernui/utils/app_text_styles.dart';
 import 'package:e_commerce_modernui/utils/assets.dart';
 import 'package:e_commerce_modernui/view/myorders/myorders_screens.dart';
 import 'package:e_commerce_modernui/view/settings/settings_screen.dart';
+import 'package:e_commerce_modernui/view/shipping/shipping_address_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -162,6 +163,12 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   );
                 } else if (menu["title"] == "Shipping Address") {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => ShippingAddressScreen(),
+                    ),
+                  );
                 } else if (menu["title"] == "My Orders") {
                 } else if (menu["title"] == "Help Center") {
                 } else if (menu["title"] == "Logout") {
