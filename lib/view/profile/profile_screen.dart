@@ -1,6 +1,7 @@
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
 import 'package:e_commerce_modernui/utils/assets.dart';
 import 'package:e_commerce_modernui/view/account/accunt_edit_screen.dart';
+import 'package:e_commerce_modernui/view/help%20center/help_center_screen.dart';
 import 'package:e_commerce_modernui/view/myorders/myorders_screens.dart';
 import 'package:e_commerce_modernui/view/settings/settings_screen.dart';
 import 'package:e_commerce_modernui/view/shipping/shipping_address_screen.dart';
@@ -177,8 +178,8 @@ class ProfileScreen extends StatelessWidget {
                       builder: (context) => ShippingAddressScreen(),
                     ),
                   );
-                } else if (menu["title"] == "My Orders") {
                 } else if (menu["title"] == "Help Center") {
+                  Navigator.push(context, CupertinoPageRoute(builder:(context) => const HelpCenterScreen(),));
                 } else if (menu["title"] == "Logout") {
                   _showLogoutComfirmDialog(context);
                 }
