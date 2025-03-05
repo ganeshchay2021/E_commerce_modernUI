@@ -1,4 +1,5 @@
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
+import 'package:e_commerce_modernui/widgets/contact_support_section.dart';
 import 'package:e_commerce_modernui/widgets/custom_iconbutton.dart';
 import 'package:e_commerce_modernui/widgets/help_category.dart';
 import 'package:flutter/material.dart';
@@ -32,50 +33,53 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildSearchBar(context),
-            const SizedBox(
-              height: 16,
-            ),
-            _popularQuestionSection(
-              context,
-              "Popular Question",
-              [
-                _popularQuestion(context, "How to track my order?", () {
-                  _showAddressBottomSheet(
-                      context, "How to track my order?", "Ok");
-                }),
-                _popularQuestion(
-                  context,
-                  "How to return on item?",
-                  () {
-                    _showAddressBottomSheet(
-                        context, "How to return on item?", "Ok");
-                  },
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            Text(
-              "Help Category",
-              style: AppTextstyles.withColor(
-                AppTextstyles.h3,
-                Theme.of(context).textTheme.bodyLarge!.color!,
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildSearchBar(context),
+              const SizedBox(
+                height: 16,
               ),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            //HelpCategory section
-            const Expanded(
-              child: HelpCategory(),
-            )
-          ],
+              _popularQuestionSection(
+                context,
+                "Popular Question",
+                [
+                  _popularQuestion(context, "How to track my order?", () {
+                    _showAddressBottomSheet(
+                        context, "How to track my order?", "Ok");
+                  }),
+                  _popularQuestion(
+                    context,
+                    "How to return on item?",
+                    () {
+                      _showAddressBottomSheet(
+                          context, "How to return on item?", "Ok");
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              Text(
+                "Help Category",
+                style: AppTextstyles.withColor(
+                  AppTextstyles.h3,
+                  Theme.of(context).textTheme.bodyLarge!.color!,
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              //HelpCategory section
+              const HelpCategory(),
+              const SizedBox(height: 16,),
+              const ContactSupportSection(),
+              const SizedBox(height: 12,),
+            ],
+          ),
         ),
       ),
     );
