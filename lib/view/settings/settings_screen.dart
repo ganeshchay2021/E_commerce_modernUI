@@ -1,6 +1,8 @@
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
 import 'package:e_commerce_modernui/utils/cubit/theme_cubit.dart';
+import 'package:e_commerce_modernui/view/privacy%20policy/privacy_policy.dart';
 import 'package:e_commerce_modernui/widgets/custom_iconbutton.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,32 +29,83 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          _buildSection(
-            context,
-            "Appearance",
-            [
-              _buildThemeToggle(context),
-            ],
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          _buildSection(
-            context,
-            "Notifications",
-            [
-              _buildNotificationSection(context, "Push Noification",
-                  "Receive push notification about orders and promotions"),
-              const SizedBox(
-                height: 8,
-              ),
-              _buildEmailSection(context, "Email Noification",
-                  "Receive email updates about your orders")
-            ],
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            _buildSection(
+              context,
+              "Appearance",
+              [
+                _buildThemeToggle(context),
+              ],
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            _buildSection(
+              context,
+              "Notifications",
+              [
+                _buildNotificationSection(context, "Push Noification",
+                    "Receive push notification about orders and promotions"),
+                const SizedBox(
+                  height: 8,
+                ),
+                _buildEmailSection(context, "Email Noification",
+                    "Receive email updates about your orders")
+              ],
+            ),
+            const SizedBox(
+              height: 4,
+            ),
+            _buildSection(
+              context,
+              "Privacy",
+              [
+                _buildPrivacySection(
+                  context,
+                  "Privacy Policy",
+                  "View our privacy policy",
+                  Icons.security,
+                  Icons.arrow_forward_ios,
+                  () {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => const PrivacyPolicy(),
+                      ),
+                    );
+                  },
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                _buildPrivacySection(
+                  context,
+                  "Terms of Service",
+                  "Read our term of service",
+                  Icons.file_copy,
+                  Icons.arrow_forward_ios,
+                  () {},
+                ),
+              ],
+            ),
+            _buildSection(
+              context,
+              "Privacy",
+              [
+                _buildPrivacySection(
+                  context,
+                  "App Version",
+                  "1.0.0",
+                  Icons.info_outline,
+                  Icons.arrow_forward_ios,
+                  () {},
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -66,7 +119,7 @@ class SettingsScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(24, 24, 24, 8),
+          padding: const EdgeInsets.fromLTRB(24, 16, 24, 8),
           child: Text(
             title,
             style: AppTextstyles.withColor(AppTextstyles.h3,
@@ -214,6 +267,56 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
         ),
+      ),
+    );
+  }
+
+  //build privacy and about app section
+  Widget _buildPrivacySection(
+      BuildContext context,
+      String title,
+      String subtitle,
+      IconData leadingIcon,
+      IconData traillingIcon,
+      VoidCallback onTap) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+                color: isDark
+                    ? Colors.black.withOpacity(0.2)
+                    : Colors.grey.withOpacity(0.1),
+                blurRadius: 8,
+                offset: const Offset(0, 2))
+          ],
+        ),
+        child: ListTile(
+          onTap: onTap,
+            leading: Icon(
+              leadingIcon,
+              color: Theme.of(context).primaryColor,
+            ),
+            title: Text(
+              title,
+              style: AppTextstyles.withColor(
+                AppTextstyles.bodyMedium,
+                Theme.of(context).textTheme.bodyLarge!.color!,
+              ),
+            ),
+            subtitle: Text(
+              subtitle,
+              style: AppTextstyles.withColor(
+                AppTextstyles.bodySmall,
+                isDark ? Colors.grey[300]! : Colors.grey[400]!,
+              ),
+            ),
+            trailing: Icon(traillingIcon)),
       ),
     );
   }
