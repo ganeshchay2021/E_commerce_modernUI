@@ -92,7 +92,7 @@ class SettingsScreen extends StatelessWidget {
             ),
             _buildSection(
               context,
-              "Privacy",
+              "About",
               [
                 _buildPrivacySection(
                   context,
