@@ -1,6 +1,8 @@
 import 'package:e_commerce_modernui/model/product_model.dart';
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
+import 'package:e_commerce_modernui/view/checkout/checkout_screen.dart';
 import 'package:e_commerce_modernui/widgets/custom_iconbutton.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatelessWidget {
@@ -11,34 +13,35 @@ class CartScreen extends StatelessWidget {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-        appBar: AppBar(
-          leading: CustomIconbutton(
-              icon: Icons.arrow_back_ios,
-              onTap: () {
-                Navigator.pop(context);
-              }),
-          title: Text(
-            "My Cart",
-            style: AppTextstyles.withColor(
-                AppTextstyles.h3, isDark ? Colors.white : Colors.black),
-          ),
+      appBar: AppBar(
+        leading: CustomIconbutton(
+            icon: Icons.arrow_back_ios,
+            onTap: () {
+              Navigator.pop(context);
+            }),
+        title: Text(
+          "My Cart",
+          style: AppTextstyles.withColor(
+              AppTextstyles.h3, isDark ? Colors.white : Colors.black),
         ),
-        body: Column(
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: ListView.builder(
-                  itemCount: products.length,
-                  itemBuilder: (context, index) {
-                    return _buildCartItem(context, products[index]);
-                  },
-                ),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: ListView.builder(
+                itemCount: products.length,
+                itemBuilder: (context, index) {
+                  return _buildCartItem(context, products[index]);
+                },
               ),
             ),
-            _buildCartSummary(context)
-          ],
-        ));
+          ),
+          _buildCartSummary(context)
+        ],
+      ),
+    );
   }
 
   //list of cart product
@@ -259,7 +262,6 @@ class CartScreen extends StatelessWidget {
   }
 
   //cart summery and checkout
-
   Widget _buildCartSummary(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
@@ -284,8 +286,10 @@ class CartScreen extends StatelessWidget {
             children: [
               Text(
                 "Total (4 Items)",
-                style: AppTextstyles.withColor(AppTextstyles.bodyMedium,
-                    isDark ? Colors.grey[300]! : Colors.grey[700]!),
+                style: AppTextstyles.withColor(
+                  AppTextstyles.bodyMedium,
+                  isDark ? Colors.grey[300]! : Colors.grey[700]!,
+                ),
               ),
               const Spacer(),
               Text(
@@ -303,7 +307,14 @@ class CartScreen extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) => CheckoutScreen(),
+                  ),
+                );
+              },
               style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
@@ -321,4 +332,6 @@ class CartScreen extends StatelessWidget {
       ),
     );
   }
+
+
 }

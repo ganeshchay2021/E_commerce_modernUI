@@ -1,6 +1,7 @@
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
 import 'package:e_commerce_modernui/utils/cubit/theme_cubit.dart';
-import 'package:e_commerce_modernui/view/privacy%20policy/privacy_policy.dart';
+import 'package:e_commerce_modernui/view/privacy/privacy_policy.dart';
+import 'package:e_commerce_modernui/view/privacy/terms_of_services.dart';
 import 'package:e_commerce_modernui/widgets/custom_iconbutton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +87,14 @@ class SettingsScreen extends StatelessWidget {
                   "Read our term of service",
                   Icons.file_copy,
                   Icons.arrow_forward_ios,
-                  () {},
+                  () {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => const TermsOfServices(),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
@@ -297,7 +305,7 @@ class SettingsScreen extends StatelessWidget {
           ],
         ),
         child: ListTile(
-          onTap: onTap,
+            onTap: onTap,
             leading: Icon(
               leadingIcon,
               color: Theme.of(context).primaryColor,
