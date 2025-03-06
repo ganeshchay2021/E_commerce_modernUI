@@ -1,7 +1,9 @@
 import 'package:e_commerce_modernui/repository/shipping_address_repository.dart';
 import 'package:e_commerce_modernui/utils/app_text_styles.dart';
 import 'package:e_commerce_modernui/utils/assets.dart';
+import 'package:e_commerce_modernui/view/order%20confirm/order_confirmation.dart';
 import 'package:e_commerce_modernui/widgets/custom_iconbutton.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutScreen extends StatelessWidget {
@@ -62,29 +64,37 @@ class CheckoutScreen extends StatelessWidget {
               _orderSummary(context),
             ],
           ),
-          
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton:  Container(
-            margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {
-                // Navigator
-              },
-              style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  backgroundColor: Theme.of(context).primaryColor),
-              child: Text(
-                "Place order (Rs. 622.10)",
-                style: AppTextstyles.withColor(
-                  AppTextstyles.buttonMedium,
-                  Colors.white,
+      floatingActionButton: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+        width: double.infinity,
+        child: ElevatedButton(
+          onPressed: () {
+            final orderNumer =
+                "#ORD${DateTime.now().millisecondsSinceEpoch.toString().substring(7)}";
+            Navigator.push(
+              context,
+              CupertinoPageRoute(
+                builder: (context) => OrderConfirmation(
+                  orderNumber: orderNumer,
                 ),
               ),
+            );
+          },
+          style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              backgroundColor: Theme.of(context).primaryColor),
+          child: Text(
+            "Place order (Rs. 622.10)",
+            style: AppTextstyles.withColor(
+              AppTextstyles.buttonMedium,
+              Colors.white,
             ),
           ),
+        ),
+      ),
     );
   }
 

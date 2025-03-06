@@ -8,4 +8,7 @@ class Assets {
   static String shoe = "assets/images/shoe.jpg";
   static String shoe2 = "assets/images/shoe2.jpg";
   static String shoes2 = "assets/images/shoes2.jpg";
+
+  //animation
+  static String orderComirmation="assets/animations/order_success.json";
 }
